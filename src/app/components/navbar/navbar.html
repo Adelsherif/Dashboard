@@ -1,0 +1,29 @@
+<div [class]= "!toggle ?  'navbar links':'navbar'">
+
+ <div [class]= "!toggle ?  'content links':'content'" >
+  <div class="head">
+    <h2><span class="pi pi-user"></span>  Welcome Back !!</h2>
+  </div>
+  <div class="sectionOne">
+    <ul>
+      <li><a href="admin"> <span class="pi pi-home"></span> Home</a></li>
+      <li><a href="admin/products"> <span class="pi pi-objects-column"></span> Products</a></li>
+      <li><a href="admin/orders"> <span class="pi pi-objects-column"></span> Orders </a></li>
+      <li><a href="admin/allusers"> <span class="pi pi-objects-column"></span> Users</a></li>
+      <li><a href="admin/adduser"><span class="pi pi-plus"></span> Add User</a></li>
+      <li><a href="admin/addproduct"><span class="pi pi-plus"></span> Add Product</a></li>
+    </ul>
+  </div>
+  <div class="sectionTow">
+    <ul>
+      <li><a href="admin/support"> <span class="pi pi-question"></span> Help</a></li>
+      <li ><a href="#"> <span class="pi pi-sign-out"></span> Log Out</a></li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="icon" (click)="toggleNav()">
+    <span class="pi pi-chevron-right"></span>
+  </div>
+
+</div>

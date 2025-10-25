@@ -1,0 +1,50 @@
+<div class="orders">
+  <div class="head">
+    <h2>Orders ({{orderNumbers ? orderNumbers: 0}})</h2>
+  </div>
+  <div class="content">
+    @if (orders) {
+     @for (item of orders; track $index) {
+    <div class="order-card">
+      <h3>Order #{{ item.id }}</h3>
+
+      <div class="shippingAddress">
+        <p><strong>City:</strong> {{ item.shippingAddress?.city }}</p>
+        <p><strong>Phone:</strong> {{ item.shippingAddress?.phone }}</p>
+        <p><strong>Address:</strong> {{ item.shippingAddress?.details }}</p>
+      </div>
+
+      <div class="user-info">
+        <p><strong>User:</strong> {{ item.user.name }}</p>
+        <p><strong>Email:</strong> {{ item.user.email }}</p>
+        <p><strong>Phone:</strong> {{ item.user?.phone }}</p>
+      </div>
+
+      <div class="order-items">
+        <h4>Cart Items</h4>
+        @for (cart of item.cartItems; track cart._id) {
+          <div class="cart-item">
+            <img [src]="cart.product.imageCover" alt="{{ cart.product.title }}" />
+            <div class="details">
+              <p><strong>{{ cart.product.title }}</strong></p>
+              <p>Brand: {{ cart.product.brand.name }}</p>
+              <p>Price: {{ cart.price }} EGP</p>
+              <p>Rating: ⭐ {{ cart.product.ratingsAverage }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="summary">
+        <p><strong>Total:</strong> {{ item.totalOrderPrice }} EGP</p>
+        <p><strong>Payment:</strong> {{ item.paymentMethodType }}</p>
+        <p><strong>Paid:</strong> {{ item.isPaid ? 'Yes' : 'No' }}</p>
+        <p><strong>Delivered:</strong> {{ item.isDelivered ? 'Yes' : 'No' }}</p>
+      </div>
+    </div>
+  }}
+  @else {
+    <app-loader />
+  }
+  </div>
+</div>

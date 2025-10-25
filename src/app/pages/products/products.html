@@ -1,0 +1,45 @@
+<div class="products">
+  <div class="head">
+    <h2>All Products</h2>
+  </div>
+
+  @if (allproducts) {
+
+  @for (item of allproducts; track $index) {
+    <div class="product-card">
+      <div class="product-image">
+        <img [src]="item.imageCover" [alt]="item.title" />
+
+        <div class="product-actions">
+          <button class="view" title="View"><i class="fa-solid fa-eye"></i></button>
+          <button class="edit" title="Edit"><i class="fa-solid fa-pen"></i></button>
+          <button class="delete" title="Delete"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h3 class="title">{{ item.title }}</h3>
+        <p class="brand">Brand: <strong>{{ item.brand?.name }}</strong></p>
+        <p class="category">Category: {{ item.category?.name }}</p>
+
+        <div class="product-meta">
+          <span class="price">{{ item.price }} EGP</span>
+          <span class="rating">⭐ {{ item.ratingsAverage }} ({{ item.ratingsQuantity }})</span>
+        </div>
+
+        <div class="stats">
+          <span><strong>Sold:</strong> {{ item.sold }}</span>
+          <span><strong>Stock:</strong> {{ item.quantity }}</span>
+        </div>
+
+        <p class="desc">
+          {{ item.description }}
+        </p>
+      </div>
+    </div>
+  }
+}
+@else {
+  <app-loader />
+}
+</div>

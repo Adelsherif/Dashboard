@@ -1,0 +1,49 @@
+<div class="login">
+  <div class="container">
+    <div class="myForm">
+      <form [formGroup] = "loginData" (ngSubmit) = "submit()">
+        <label for="email">Enter E-mail:</label>
+        <input type="email" [(ngModel)]="testEmail" name="email" id="email" placeholder="Enter your email" formControlName = "email"/>
+        <div class="invalid">
+         @if(email.touched && email.invalid){
+          Invalid Value
+        }
+        </div>
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="testPassword" name="password" id="password" placeholder="Enter your password" formControlName = "password" />
+        <div class="invalid">
+          @if(password.touched && password.invalid){
+            Invalid Value
+          }
+        </div>
+        
+        <button class="login-btn">Login</button>
+        @if(loading){
+          <app-loader />
+        }
+        
+        <a href="#" class="link">Forgot Password?</a>
+      </form>
+    </div>
+    <div class="image">
+      <swiper-container
+        autoplay="true"
+        loop="true"
+        class="swiper-wrapper"
+>
+      <swiper-slide class="swiper-slide">
+        <img src="sliderImages/image -01.jpg" alt="slide" />
+      </swiper-slide>
+        <swiper-slide class="swiper-slide">
+        <img src="sliderImages/image -02.jpg" alt="slide" />
+      </swiper-slide>
+        <swiper-slide class="swiper-slide">
+        <img src="sliderImages/image -03.jpg" alt="slide" />
+      </swiper-slide>
+        <swiper-slide class="swiper-slide">
+        <img src="sliderImages/image -04.jpg" alt="slide" />
+      </swiper-slide>
+    </swiper-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="statistics">
+  <div class="container">
+    <div class="statistics-content">
+      <div class="box">
+        <div class="head">
+          <span class="pi pi-user"></span>
+          <h4>{{ numOfUsers }} Total Of User</h4>
+        </div>
+        <div class="content">
+          <p> User </p>
+          <p>{{ date | date }}</p>
+        </div>
+      </div>
+      <div class="box">
+           <div class="head">
+          <span class="pi pi-cart-minus"></span>
+          <h4>{{ numOfProducts }} Total Of Products</h4>
+        </div>
+        <div class="content">
+          <p> Product In Cart</p>
+          <p>{{ date | date }}</p>
+        </div>
+      </div>
+      <div class="box">
+           <div class="head">
+          <span class="pi pi-heart"></span>
+          <h4> {{ numOfOrders }} Total Of Orders</h4>
+        </div>
+        <div class="content">
+          <p>Order in waiting</p>
+          <p>{{ date | date }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="chart">
+        <canvas baseChart
+    [data]="chartData"
+    [type]="chartType_one">
+  </canvas>
+
+    <canvas baseChart
+    [data]="chartData"
+    [type]="chartType_tow">
+</canvas>
+    </div>
+  </div>
+</div>

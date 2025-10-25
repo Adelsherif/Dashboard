@@ -1,0 +1,31 @@
+.header{
+  background-color: white;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+    .sectionOne{
+      @media (max-width: 768px) {
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+
+      }
+    }
+    .sectionTow{
+      input{
+        padding: 10px 10px;
+        border-radius: 50px;
+        border: 1px solid #ccc;
+      }
+    }
+    .sectionThree{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1.2em;
+    }
+  }
+}

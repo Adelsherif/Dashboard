@@ -1,0 +1,70 @@
+<div class="add-product-page">
+  <div class="header">
+    <h2>Add New Product</h2>
+    <p>Fill in the details below to create a new product.</p>
+  </div>
+
+  <form class="product-form" (ngSubmit)="onSubmit()" [formGroup]="productForm">
+    <div class="form-group">
+      <label for="title">Product Title</label>
+      <input id="title" type="text" formControlName="title" placeholder="Enter product name" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" placeholder="Enter product description"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="price">Price (EGP)</label>
+        <input id="price" type="number" formControlName="price" placeholder="191" />
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Stock Quantity</label>
+        <input id="quantity" type="number" formControlName="quantity" placeholder="225" />
+      </div>
+
+      <div class="form-group">
+        <label for="sold">Sold</label>
+        <input id="sold" type="number" formControlName="sold" placeholder="22025" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" formControlName="category">
+          <option value="">Select category</option>
+          @for (item of categories; track $index) {
+          <option  [value]="item._id">{{ item.name }}</option>
+
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <select id="brand" formControlName="brand">
+          <option value="">Select brand</option>
+          @for (item of brands; track $index) {
+          <option [value]="item._id">{{ item.name }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imageCover">Main Image URL</label>
+      <input id="imageCover" type="text" formControlName="imageCover" placeholder="https://example.com/image.jpg" />
+    </div>
+
+    <div class="form-group">
+      <label for="images">Gallery Images (comma separated)</label>
+      <input id="images" type="text" formControlName="images" placeholder="https://example.com/img1.jpg, https://example.com/img2.jpg" />
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="productForm.invalid">Add Product</button>
+  </form>
+</div>
